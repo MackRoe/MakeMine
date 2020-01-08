@@ -10,7 +10,11 @@ from recipes.forms import RecipeForm
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the recipes index.")
+    # return HttpResponse("Hello, world. You're at the recipes index.")
+    context = ''
+    return render(request, 'home.html', {
+        'context': context
+    })
 # Create your views here.
 
 
