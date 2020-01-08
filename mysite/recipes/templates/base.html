@@ -1,3 +1,4 @@
+{% load static %}
 <html>
 <head>
     <meta charset="utf-8">
@@ -7,11 +8,12 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/solar/bootstrap.min.css">
-    <link rel="stylesheet" href="./static/styles.css">
+    <link rel="stylesheet" href="{% static 'css/recipes.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
     <title>MakinMine</title>
 </head>
 <body>
+
     <!-- begin navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Navbar</a>
