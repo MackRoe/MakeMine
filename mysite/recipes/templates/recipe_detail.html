@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 
 recipe detail
-<p>
-{{ recipe_detail.title }}
-</p>
+{% block content %}
+<div class="col-md-8 bg-light">
+    <p>
+        <h2>
+            {{ recipe_detail.title }}
+        </h2>
+    <p>
+        <h3>Ingredients</h3>
+        {{ recipe_detail.ingredients }}
+    <p>
+        <h3>Instructions</h3>
+        {{ recipe_detail.instructions }}
+    </p>
+</div>
+{% endblock %}

@@ -1,4 +1,8 @@
-recipe list
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2>recipe list</h2>
 <ul>
     {% for recipe in recipe_list %}
     <li>
@@ -8,3 +12,4 @@ recipe list
     </li>
     {% endfor %}
 </ul>
+{% endblock %}

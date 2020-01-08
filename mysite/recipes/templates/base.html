@@ -24,7 +24,7 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
@@ -41,19 +41,35 @@
   </div>
 </nav>
 <!-- end navbar -->
+
+<!-- begin jumbotron -->
     <div class="jumbotron">
         <h1 class="text-default">
             MakinMine
         </h1>
+        <h3 class="ml-5 pl-5">
+            Waste Free Personal Products
+        </h3>
     </div>
 
+<!-- begin sidebar nav -->
+    <div class="col-md-2 bg-caution">
+        <div class="sidenav">
+            <strong>Catagories</strong><br>
+            <a href="">Skin</a><br>
+            <a href="#">Teeth</a><br>
+            <a href="#">Hair</a><br>
+            <a href="#">Face</a>
+        </div>
+    </div>
+<!-- end sidebar nav -->
 
 
-    <!-- inside navbar maybe -->
-    <a href="{% url 'add_recipe' %}" class="btn btn-success ml-4">New Page</a>
 
     {% block content %}
     {% endblock %}
+    <!-- inside navbar maybe -->
+    <a href="{% url 'add_recipe' %}" class="btn btn-success ml-4 mt-5">Add Your Recipe</a>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
