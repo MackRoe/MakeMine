@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import FormView, CreateView
+from django.urls import reverse_lazy
 
 from recipes.models import Recipe
+from recipes.forms import RecipeForm
 
 
 def index(request):
@@ -34,3 +37,19 @@ class RecipeDetailView(DetailView):
         return render(request, 'recipe_detail.html', {
             'recipe_detail': recipe_detail
         })
+
+
+class RecipeAddView(CreateView):
+    template_name = 'addrecipe.html'
+
+    def get(self, request):
+        form = RecipeForm()
+        print('get_method')
+        return render(request, 'addrecipe.html', {'form': form})
+
+    def post(self, request):
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            newrecipe = form.save()
+            return HttpResponseRedirect(reverse_lazy('recipe_detail', args[newrecipe.slug]))
+        return render(request, 'addrecipe.html', {'form': form})
