@@ -57,10 +57,10 @@ class RecipeAddView(CreateView):
         form = RecipeForm(request.POST)
         if form.is_valid():
             newrecipe = form.save()
-            print("valid form")
+            # print("valid form")
             return HttpResponseRedirect(reverse_lazy('recipe_detail', args=[newrecipe.slug]))
         else:
-            print("invalid form")
+            # print("invalid form")
             return HttpResponse("Form Not Valid")
         return render(request, 'addrecipe.html', {'form': form})
 
@@ -78,6 +78,7 @@ class RecipeUpdateView(UpdateView):
     ''' renders an update recipe form '''
     model = Recipe
     template_name = 'update_recipe.html'
+    form_class = RecipeForm
 
     def get_success_url(self):
         return reverse('recipe_detail', kwargs={

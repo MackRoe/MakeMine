@@ -8,7 +8,10 @@
     <div class="col-md-8 pb-5">
         <form action='/addrecipe/' method='POST'>
             {% csrf_token %}
-            {{ form.as_p }}
+            {% for field in form %}
+            {{ field.label_tag }}<br />
+            {{ field }}<br /><br />
+            {% endfor %}
             <input type='submit' value='Submit' class="btn btn-success">
             <!-- <a href="{% url 'add_recipe'  %}" class="btn btn-success">SAVE</a> -->
         </form>

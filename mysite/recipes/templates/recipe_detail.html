@@ -17,7 +17,9 @@ recipe detail
     <p>
         Do you hate it? <br>
         <form method="POST">
-
+            <a href="{% url 'update_recipe' recipe_detail.slug %}" class="btn btn-warning">
+                Fix It
+            </a>
             <a href="{% url 'delete_recipe' recipe_detail.slug %}" class="btn btn-danger">
                 Trash It
             </a>
