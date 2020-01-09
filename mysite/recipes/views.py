@@ -76,7 +76,7 @@ class RecipeDeleteView(DeleteView):
 
 class RecipeUpdateView(UpdateView):
     ''' renders an update recipe form '''
-    model = Recipes
+    model = Recipe
     template_name = 'update_recipe.html'
 
     def get_success_url(self):

@@ -1,6 +1,6 @@
 from django.urls import path
 from recipes.views import RecipeListView, RecipeDetailView, RecipeAddView
-from recipes.views import RecipeDeleteView, SkinRecipesView
+from recipes.views import RecipeDeleteView, SkinRecipesView, RecipeUpdateView
 
 from . import views
 
