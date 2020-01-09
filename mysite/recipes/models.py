@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from django.utils.text import slugify
 from django.conf import settings
@@ -8,8 +10,8 @@ from django.urls import reverse
 
 # Create your models here.
 class Recipe(models.Model):
-    title = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    title = models.CharField(max_length=200, unique=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
     catagory = models.CharField(max_length=200, default='')
     ingredients = models.TextField(default='')
     instructions = models.TextField(default='')
@@ -32,6 +34,10 @@ class Recipe(models.Model):
 
         # Call save on superclass
         return super(Recipe, self).save(*args, **kwargs)
+
+    def was_published_recently(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
 
 class Comment(models.Model):

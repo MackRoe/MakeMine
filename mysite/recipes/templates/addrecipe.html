@@ -9,8 +9,8 @@
         <form action='/addrecipe/' method='POST'>
             {% csrf_token %}
             {{ form.as_p }}
-            <!-- input type='submit' value='Submit'-->
-            <a href="{% url 'add_recipe'  %}" class="btn btn-success">SAVE</a>
+            <input type='submit' value='Submit'>
+            <!-- <a href="{% url 'add_recipe'  %}" class="btn btn-success">SAVE</a> -->
         </form>
     </div>
 </p>

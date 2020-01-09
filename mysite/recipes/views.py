@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import FormView, CreateView, DeleteView
+from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.utils import timezone
@@ -27,7 +27,7 @@ class RecipeListView(ListView):
     def get(self, request):
         ''' GET a list of recipes '''
         recipe_list = self.get_queryset().all()
-        print(recipe_list)
+        # print(recipe_list)
         return render(request, 'recipe_list.html', {
             'recipe_list': recipe_list
         })
@@ -57,7 +57,11 @@ class RecipeAddView(CreateView):
         form = RecipeForm(request.POST)
         if form.is_valid():
             newrecipe = form.save()
-            return HttpResponseRedirect(reverse_lazy('recipe_detail', args[newrecipe.slug]))
+            print("valid form")
+            return HttpResponseRedirect(reverse_lazy('recipe_detail', args=[newrecipe.slug]))
+        else:
+            print("invalid form")
+            return HttpResponse("Form Not Valid")
         return render(request, 'addrecipe.html', {'form': form})
 
 
@@ -68,3 +72,23 @@ class RecipeDeleteView(DeleteView):
 
     def get(self, *args, **kwargs):
         return self.delete(*args, **kwargs)
+
+
+class RecipeUpdateView(UpdateView):
+    ''' renders an update recipe form '''
+    model = Recipes
+    template_name = 'update_recipe.html'
+
+    def get_success_url(self):
+        return reverse('recipe_detail', kwargs={
+            'slug': self.object.slug,
+        })
+
+
+class SkinRecipesView(ListView):
+    model = Recipe
+
+    def get(self, request):
+        skin_recipes_list = self.get_queryset().filter(catagory='skin')
+        print(skin_recipes_list)
+        return render(request, 'skin_recipes.html', {'skin_recipes_list': skin_recipes_list})
