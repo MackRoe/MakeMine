@@ -32,6 +32,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'recipe_list' %}" title="">Recipes</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" title="">Shop</a>
+      </li>
 
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -69,14 +72,18 @@
     {% block content %}
     {% endblock %}
     <!-- 'Add New' button  -->
-    <a href="{% url 'add_recipe' %}" class="btn btn-success ml-4 mt-5">Add Your Recipe</a>
+
+        <a href="{% url 'add_recipe' %}" class="btn btn-success ml-4 mt-5 mb-5">
+            Add Your Recipe
+        </a>
+    
 
 <!-- begin footer -->
-    <div class="col-md-12 bg-secondary">
-        <h6 class="text-dark">
+    <footer class="footer pt-3 pb-1 bg-secondary fixed-bottom">
+        <h6 class="text-dark small">
         Copyright 2020; MackRoe(TM)
     </h6>
-    </div>
+</footer>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

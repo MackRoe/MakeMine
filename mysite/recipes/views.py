@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import FormView, CreateView
+from django.views.generic.edit import FormView, CreateView, DeleteView
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
+from django.utils import timezone
 
 from recipes.models import Recipe
 from recipes.forms import RecipeForm
@@ -57,3 +59,12 @@ class RecipeAddView(CreateView):
             newrecipe = form.save()
             return HttpResponseRedirect(reverse_lazy('recipe_detail', args[newrecipe.slug]))
         return render(request, 'addrecipe.html', {'form': form})
+
+
+class RecipeDeleteView(DeleteView):
+    ''' deletes a recipe '''
+    model = Recipe
+    success_url = reverse_lazy('recipe_list')
+
+    def get(self, *args, **kwargs):
+        return self.delete(*args, **kwargs)

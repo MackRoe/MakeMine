@@ -2,13 +2,16 @@
 
 {% block content %}
 <p>
-<h2>
-add recipe
-</h2>
-<form action='/addrecipe/' method='post'>
-    {% csrf_token %}
-    {{ form }}
-    <input type='submit' value='Submit'>
-</form>
+    <h2>
+    add recipe
+    </h2>
+    <div class="col-md-8 pb-5">
+        <form action='/addrecipe/' method='POST'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!-- input type='submit' value='Submit'-->
+            <a href="{% url 'add_recipe'  %}" class="btn btn-success">SAVE</a>
+        </form>
+    </div>
 </p>
 {% endblock %}

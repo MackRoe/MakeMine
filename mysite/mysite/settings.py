@@ -25,7 +25,7 @@ SECRET_KEY = '*rikldysfipcbhx+r#xj@e(iy5o-5q5(fe)^j@js9js$e6)ow-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'makinmine.herokuapp.com']
 
 
 # Application definition
@@ -119,6 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
 
 # recipes app settings
 RECIPE_PAGE_TITLE_MAX_LENGTH = 600
