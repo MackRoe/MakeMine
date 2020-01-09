@@ -9,7 +9,9 @@ recipe detail
         </h2>
     <p>
         <h3>Ingredients</h3>
-        {{ recipe_detail.ingredients }}
+
+            {{ recipe_detail.ingredients }}<br />
+
     <p>
         <h3>Instructions</h3>
         {{ recipe_detail.instructions }}
@@ -24,6 +26,12 @@ recipe detail
                 Trash It
             </a>
         </form>
+        Or..
+        <!-- 'Add New' button  -->
+
+            <a href="{% url 'add_recipe' %}" class="btn btn-success ml-4 mt-5 mb-5">
+                Add Your Own Recipe
+            </a>
     </p>
 </div>
 {% endblock %}

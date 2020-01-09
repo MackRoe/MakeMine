@@ -39,6 +39,10 @@ class Recipe(models.Model):
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
+    # @register.filter(name='split')
+    # def split(value, arg):
+    #     return value.split(arg)
+
 
 class Comment(models.Model):
     author = models.CharField(max_length=200)
