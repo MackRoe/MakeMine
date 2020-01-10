@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
 from django.utils import timezone
 
@@ -50,7 +50,7 @@ class RecipeAddView(CreateView):
 
     def get(self, request):
         form = RecipeForm()
-        print('get_method')
+        # print('get_method')
         return render(request, 'addrecipe.html', {'form': form})
 
     def post(self, request):
@@ -71,6 +71,7 @@ class RecipeDeleteView(DeleteView):
     success_url = reverse_lazy('recipe_list')
 
     def get(self, *args, **kwargs):
+        print('get method update')
         return self.delete(*args, **kwargs)
 
 

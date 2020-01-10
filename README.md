@@ -15,3 +15,10 @@ Clone repo. cd into the `mysite` directory. In the terminal window, enter the fo
 You should see a message that says: `Starting development server at http://127.0.0.1:8000/`
 
 Go to the url in your browser to view the site.
+
+### Credits
+
+The following are people/projects where example reference for this project were found.
+
+Aucour Ngo / Staple
+Dani Roxbury / MakeWiki and MakeWikiV2

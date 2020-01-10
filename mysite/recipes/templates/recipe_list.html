@@ -3,19 +3,24 @@
 
 {% block content %}
 <h2>recipe list</h2>
-<ul>
-    {% for recipe in recipe_list %}
-    <li>
-        <a href="{% url 'recipe_detail' recipe.slug %}" title="">
-            {{ recipe.title }}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
-<!-- 'Add New' button  -->
+<div class="col-md-8 pb-5">
+    <ul>
+        {% for recipe in recipe_list %}
+        <li>
+            <a href="{% url 'recipe_detail' recipe.slug %}" title="">
+                {{ recipe.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p>
+        <!-- 'Add New' button  -->
 
-    <a href="{% url 'add_recipe' %}" class="btn btn-success ml-4 mt-5 mb-5">
-        Add Your Recipe
-    </a>
+        <a href="{% url 'add_recipe' %}" class="btn btn-success ml-4 mt-5 mb-5">
+            Add Your Recipe
+        </a>
+    </p>
+</div>
+
 
 {% endblock %}
