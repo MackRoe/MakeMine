@@ -129,3 +129,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # recipes app settings
 RECIPE_PAGE_TITLE_MAX_LENGTH = 600
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES[‘default’].update(db_from_env)
