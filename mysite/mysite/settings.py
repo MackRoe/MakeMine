@@ -25,7 +25,7 @@ SECRET_KEY = '*rikldysfipcbhx+r#xj@e(iy5o-5q5(fe)^j@js9js$e6)ow-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'whispering-escarpment-82646.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', 'makinmine-em.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
