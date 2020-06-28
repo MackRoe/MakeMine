@@ -20,5 +20,5 @@ Go to the url in your browser to view the site.
 
 The following are people/projects where example reference for this project were found.
 
-Aucour Ngo / Staple
+Aucour Ngo / Staple <br>
 Dani Roxbury / MakeWiki and MakeWikiV2

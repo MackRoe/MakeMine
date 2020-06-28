@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
+from django.views.generic.edit import FormView, CreateView, DeleteView
+from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
 from django.utils import timezone
